@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.1.0-dev.1] - TODO: Add release date.
 
-* TODO: Describe initial release.
+* Adds basic untested implementation of StreamSummaryBuilder and unfinished example

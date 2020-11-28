@@ -6,9 +6,10 @@ Use this class instead of `StreamBuilder` if you need a widget that
 represents the summary of all stream event so far instead of just the latest
 element. A common use case would be building a `ListView` with elements
 fetched asynchronously from a paginated Database Query.
+
 `T` is the type of stream events.
-`S` is the type of interaction summary. Summaries are wrapped in
-`AsyncSnapshot` to give the builder access to the `ConnectionState`.
+
+`S` is the type of interaction summary. Summaries are wrapped in `AsyncSnapshot` to give the builder access to the `ConnectionState`.
 See also:
  * `StreamBuilder`, which is specialized for the case where only the most
    recent interaction is needed for widget building.

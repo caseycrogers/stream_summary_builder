@@ -120,7 +120,7 @@ packages:
       name: stream_summary_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0-dev.2"
+    version: "0.1.0-dev.4"
   string_scanner:
     dependency: transitive
     description:

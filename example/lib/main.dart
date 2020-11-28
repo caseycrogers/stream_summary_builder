@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           body: StreamSummaryBuilder<String, String>(
             initialData: '',
             fold: (summary, value) => summary + value,
-            /// Simulates receiving text line by line from an aysnchronous source
+            /// Simulates receiving text line by line from an asynchronous source
             stream: delayedText(),
             builder: _displayTextSummary
           ),

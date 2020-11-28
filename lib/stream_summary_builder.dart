@@ -3,7 +3,6 @@ library stream_summary_builder;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 /// An implementation of [StreamBuilderBase] that folds new stream events into a
 /// summary and builds with the summary of stream events seen so far.
 ///
@@ -23,7 +22,8 @@ import 'package:flutter/material.dart';
 ///    recent interaction is needed for widget building.
 ///  * [StreamBuilderBase], an abstract class that enables greater customization
 ///    of summary and connection state behavior.
-class StreamSummaryBuilder<T, S> extends StreamBuilderBase<T, AsyncSnapshot<S>> {
+class StreamSummaryBuilder<T, S>
+    extends StreamBuilderBase<T, AsyncSnapshot<S>> {
   const StreamSummaryBuilder({
     Key? key,
     required this.initialData,
@@ -39,14 +39,17 @@ class StreamSummaryBuilder<T, S> extends StreamBuilderBase<T, AsyncSnapshot<S>> 
   final S initialData;
 
   @override
-  AsyncSnapshot<S> initial() => AsyncSnapshot<S>.withData(ConnectionState.none, initialData);
+  AsyncSnapshot<S> initial() =>
+      AsyncSnapshot<S>.withData(ConnectionState.none, initialData);
 
   @override
-  AsyncSnapshot<S> afterConnected(AsyncSnapshot<S> current) => initial().inState(ConnectionState.waiting);
+  AsyncSnapshot<S> afterConnected(AsyncSnapshot<S> current) =>
+      initial().inState(ConnectionState.waiting);
 
   @override
   AsyncSnapshot<S> afterData(AsyncSnapshot<S> current, T data) {
-    return AsyncSnapshot<S>.withData(ConnectionState.active, fold(current.data!, data));
+    return AsyncSnapshot<S>.withData(
+        ConnectionState.active, fold(current.data!, data));
   }
 
   @override
@@ -55,13 +58,16 @@ class StreamSummaryBuilder<T, S> extends StreamBuilderBase<T, AsyncSnapshot<S>> 
   }
 
   @override
-  AsyncSnapshot<S> afterDone(AsyncSnapshot<S> current) => current.inState(ConnectionState.done);
+  AsyncSnapshot<S> afterDone(AsyncSnapshot<S> current) =>
+      current.inState(ConnectionState.done);
 
   @override
-  AsyncSnapshot<S> afterDisconnected(AsyncSnapshot<S> current) => current.inState(ConnectionState.none);
+  AsyncSnapshot<S> afterDisconnected(AsyncSnapshot<S> current) =>
+      current.inState(ConnectionState.none);
 
   @override
-  Widget build(BuildContext context, AsyncSnapshot<S> currentSummary) => builder(context, currentSummary);
+  Widget build(BuildContext context, AsyncSnapshot<S> currentSummary) =>
+      builder(context, currentSummary);
 }
 
 /// A function that takes a summary and a new value and returns a new summary

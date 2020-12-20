@@ -13,3 +13,7 @@
 ## [0.1.0-dev.5] - 11/28/2020
 
 * Chase them sweet sweet gamified Pub Points.
+
+## [0.1.0-dev.6] - 12/20/2020
+
+* Updated to Flutter 2.12 (include Stacktrace function parameter in `afterError`).

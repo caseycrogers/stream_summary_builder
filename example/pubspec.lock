@@ -117,10 +117,10 @@ packages:
   stream_summary_builder:
     dependency: "direct main"
     description:
-      name: stream_summary_builder
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0-dev.4"
+      path: ".."
+      relative: true
+    source: path
+    version: "0.1.0-dev.5"
   string_scanner:
     dependency: transitive
     description:
@@ -158,4 +158,4 @@ packages:
     version: "2.1.0-nullsafety.5"
 sdks:
   dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=1.25.0-0"

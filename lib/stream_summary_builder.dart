@@ -53,7 +53,8 @@ class StreamSummaryBuilder<T, S>
   }
 
   @override
-  AsyncSnapshot<S> afterError(AsyncSnapshot<S> current, Object error) {
+  AsyncSnapshot<S> afterError(
+      AsyncSnapshot<S> current, Object error, StackTrace stackTrace) {
     return AsyncSnapshot<S>.withError(ConnectionState.active, error);
   }
 

@@ -17,3 +17,7 @@
 ## [0.1.0-dev.6] - 12/20/2020
 
 * Updated to Flutter 2.12 (include Stacktrace function parameter in `afterError`).
+
+## [0.1.0-dev.7] - 12/20/2020
+
+* Updates to sample app and documentation.

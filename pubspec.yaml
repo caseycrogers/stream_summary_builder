@@ -1,7 +1,7 @@
 name: stream_summary_builder
 description: An implementation of `StreamBuilderBase` that folds new stream events into a
   summary and builds with the summary of stream events seen so far.
-version: 0.1.0-dev.6
+version: 0.1.0-dev.7
 homepage: 'https://github.com/caseycrogers/stream_summary_builder'
 
 environment:

@@ -1,4 +1,3 @@
-
 Stream<String> delayedText() async* {
   var lineIter = """According to all known laws
 of aviation,

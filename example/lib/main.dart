@@ -7,8 +7,27 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late Stream<String> _cachedTextStream;
+
+  void _initStream() {
+    _cachedTextStream = delayedText();
+  }
+
+  @override
+  void initState() {
+    // Create our stream here to prevent rebuilding the stream on widget
+    // rebuilds.
+    _initStream();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +40,10 @@ class MyApp extends StatelessWidget {
             /// Simulates receiving text line by line from an asynchronous source
             stream: delayedText(),
             builder: _displayTextSummary
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.refresh),
+            onPressed: () => setState(_initStream),
           ),
         ),
       ),

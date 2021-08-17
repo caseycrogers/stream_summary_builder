@@ -32,10 +32,14 @@ class StreamSummaryBuilder<T, S>
     required this.builder,
   }) : super(key: key, stream: stream);
 
+  /// A function that folds an element of type [T] into a summary of type [S].
+  /// See [Fold].
   final Fold<T, S> fold;
 
+  /// Build a widget using a summary [S] of element seen so far.
   final AsyncWidgetBuilder<S> builder;
 
+  /// The summary object to use before any elements are received.
   final S initialData;
 
   @override

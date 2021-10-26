@@ -14,18 +14,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late Stream<String> _cachedTextStream;
+  late Stream<String> _cachedTextStream = delayedText();
 
   void _initStream() {
     _cachedTextStream = delayedText();
-  }
-
-  @override
-  void initState() {
-    // Create our stream here to prevent rebuilding the stream on widget
-    // rebuilds.
-    _initStream();
-    super.initState();
   }
 
   @override
@@ -35,12 +27,12 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
         child: Scaffold(
           body: StreamSummaryBuilder<String, String>(
-            initialData: '',
-            fold: (summary, value) => summary + value,
-            /// Simulates receiving text line by line from an asynchronous source
-            stream: delayedText(),
-            builder: _displayTextSummary
-          ),
+              initialData: '',
+              fold: (summary, value) => summary + value,
+
+              /// Simulates receiving text line by line from an asynchronous source
+              stream: _cachedTextStream,
+              builder: _displayTextSummary),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.refresh),
             onPressed: () => setState(_initStream),
@@ -50,7 +42,9 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Widget _displayTextSummary(BuildContext context, AsyncSnapshot<String> snapshot) {
-    return Align(child: Text(snapshot.data ?? ''), alignment: Alignment.topLeft);
+  Widget _displayTextSummary(
+      BuildContext context, AsyncSnapshot<String> snapshot) {
+    return Align(
+        child: Text(snapshot.data ?? ''), alignment: Alignment.topLeft);
   }
 }

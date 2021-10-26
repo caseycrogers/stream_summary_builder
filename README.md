@@ -16,7 +16,6 @@ See also:
  * `StreamBuilderBase`, an abstract class that enables greater customization
    of summary and connection state behavior.
 
-Disclaimer: I have no idea what I'm doing and this package isn't unit tested. Use at your own risk.
 Any contributions to this package are highly welcome.
 
 ## Getting Started

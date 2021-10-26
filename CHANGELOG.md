@@ -21,3 +21,7 @@
 ## [0.1.0-dev.7] - 12/20/2020
 
 * Updates to sample app and documentation.
+
+## [1.0.0] - 10/26/2021
+
+* Added tests.

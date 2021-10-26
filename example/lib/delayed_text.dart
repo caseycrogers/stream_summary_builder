@@ -15,7 +15,9 @@ The bee, of course, flies anyway
 
   
 because bees don't care
-what humans think is impossible.""".split('').iterator;
+what humans think is impossible."""
+      .split('')
+      .iterator;
   while (lineIter.moveNext()) {
     yield lineIter.current;
     await Future.delayed(Duration(milliseconds: 100));
